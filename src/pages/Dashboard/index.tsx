@@ -16,8 +16,8 @@ interface Transaction {
   id: string
   title: string
   value: number
-  formattedValue: string
-  formattedDate: string
+  formatedValue: string
+  formatedDate: string
   type: 'income' | 'outcome'
   category: { title: string }
   created_at: Date
@@ -88,9 +88,9 @@ const Dashboard: React.FC = () => {
               {transactions.map(transaction => (
                 <tr key={transaction.id}>
                   <td className='title'>{transaction.title}</td>
-                  <td className={transaction.type}>R$ {transaction.value}</td>
+                  <td className={transaction.type}>R$ {formatValue(transaction.value)}</td>
                   <td>{transaction.category.title}</td>
-                  <td>{transaction.formattedDate}</td>
+                  <td>{transaction.created_at}</td>
                 </tr>
               ))}
             </tbody>
