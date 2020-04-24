@@ -11,6 +11,7 @@ import Header from '../../components/Header'
 import formatValue from '../../utils/formatValue'
 
 import { Container, CardContainer, Card, TableContainer } from './styles'
+import formatDate from '../../utils/formatDate'
 
 interface Transaction {
   id: string
@@ -88,9 +89,9 @@ const Dashboard: React.FC = () => {
               {transactions.map(transaction => (
                 <tr key={transaction.id}>
                   <td className='title'>{transaction.title}</td>
-                  <td className={transaction.type}>R$ {formatValue(transaction.value)}</td>
+                  <td className={transaction.type}>{formatValue(transaction.value)}</td>
                   <td>{transaction.category.title}</td>
-                  <td>{transaction.created_at}</td>
+                  <td>{formatDate(transaction.created_at)}</td>
                 </tr>
               ))}
             </tbody>
